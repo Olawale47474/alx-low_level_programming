@@ -7,8 +7,9 @@
  */
 int main(void)
 {
-	int num = 10
-		printf("my integer value = %d", num);
-	getch();
+	int num;
+	for num = 0; num < 10; num++)
+		printf("%d", num);
+	printf("\n");
 	return (0);
 }
