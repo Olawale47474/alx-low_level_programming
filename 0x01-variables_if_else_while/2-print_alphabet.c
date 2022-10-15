@@ -3,7 +3,7 @@
 /**
  * main - Prints the alphabetic
  *
- * Return: Always (Success)
+ * Return: Always 0
  */
 int main(void)
 {
@@ -13,6 +13,5 @@ int main(void)
 		putchar(c);
 
 	putchar('\n');
-	putchat("stringcharacters");
 	return (0);
 }
