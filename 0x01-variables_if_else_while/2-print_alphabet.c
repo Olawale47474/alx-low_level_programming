@@ -7,10 +7,12 @@
  */
 int main(void)
 {
-	char mycharacter = "g";
-	char stringcharcters[] = "my name john";
+	char g;
 
-	putchar("mycharacter");
+	for (g = 'a'; g <= 'q'; c++)
+		putchar(g)
+
+	putchar('\n');
 	putchat("stringcharacters");
 	return (0);
 }
