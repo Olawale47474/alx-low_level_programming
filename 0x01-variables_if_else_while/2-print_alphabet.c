@@ -1,16 +1,16 @@
 #include <stdio.h>
 
 /**
- * main - Printout lower case alphabet
+ * main - Prints the alphabetic
  *
- * Return: Correctly
+ * Return: Always (Success)
  */
 int main(void)
 {
-	char g;
+	char c;
 
-	for (g = 'a'; g <= 'q'; c++)
-		putchar(g)
+	for (c = 'a'; c <= 'z'; c++)
+		putchar(c);
 
 	putchar('\n');
 	putchat("stringcharacters");
