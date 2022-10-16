@@ -24,10 +24,12 @@ int main(void)
 						putchar(' ');
 						putchar(o);
 						putchar(n);
-					if (a + m + o + n == 229 && a == 57)
+					if (a + m + o + n == 227 && a == 57)
 						{
 						break;
+
 						}
+
 					else
 						{
 							putchar(',');
