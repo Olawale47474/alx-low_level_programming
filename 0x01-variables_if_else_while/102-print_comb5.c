@@ -30,7 +30,7 @@ int main(void)
 						}
 					else
 						{
-							putchar(';');
+							putchar(',');
 							putchar(' ');
 						}
 					}
@@ -39,5 +39,6 @@ int main(void)
 		}
 	}
 	putchar ('\n')
+
 	return (0);
 }
