@@ -24,22 +24,22 @@ int main(void)
 						putchar(' ');
 						putchar(o);
 						putchar(n);
+
 					if (a + m + o + n == 227 && a == 57)
-						{
-						break;
-
-						}
-
+					{
+					break;
+					}
 					else
-						{
-							putchar(',');
-							putchar(' ');
-						}
+					{
+					putchar(',');
+					putchar(' ');
+					}
 					}
 				}
 			}
 		}
 	}
+
 	putchar('\n');
 
 	return (0);
