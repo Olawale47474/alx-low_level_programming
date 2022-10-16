@@ -9,13 +9,13 @@ int main(void)
 {
 	int a, m, o, n;
 
-	for (a = 48; a <= 57; a++)
+	for (a = 50; a <= 57; a++)
 	{
-		for (m = 48; m <= 57; m++)
+		for (m = 50; m <= 57; m++)
 		{
-			for (o = 48; o <= 57; o++)
+			for (o = 50; o <= 57; o++)
 			{
-				for (n = 48; n <= 57; n++)
+				for (n = 50; n <= 57; n++)
 				{
 					if (((n + o) > (a + m) && n >= a) || a < n)
 					{
@@ -24,7 +24,7 @@ int main(void)
 						putchar(' ');
 						putchar(o);
 						putchar(n);
-					if (a + m + o + n == 227 && a == 57)
+					if (a + m + o + n == 234 && a == 57)
 						{
 						break;
 						}
