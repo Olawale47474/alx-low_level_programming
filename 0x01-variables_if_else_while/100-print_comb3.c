@@ -8,9 +8,9 @@
  */
 int main(void)
 {
-	int c, x;
+	int w, x;
 
-	for (c = '0'; c <= '9'; c++)
+	for (w = '0'; w <= '9'; c++)
 	{
 		for (x = '0'; x <= '9'; x++)
 		{
