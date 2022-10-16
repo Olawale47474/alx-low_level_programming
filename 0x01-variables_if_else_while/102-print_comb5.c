@@ -7,9 +7,9 @@
  */
 int main(void)
 {
-	int a, m, o, n;
+	int k, m, o, n;
 
-	for (a = 48; a <= 57; a++)
+	for (k = 48; k <= 57; k++)
 	{
 		for (m = 48; m <= 57; m++)
 		{
@@ -17,15 +17,15 @@ int main(void)
 			{
 				for (n = 48; n <= 57; n++)
 				{
-					if (((n + o) > (a + m) && n >= a) || a < n)
+					if (((o + n) > (k + m) && o >= k) || k < n)
 					{
-						putchar(a);
+						putchar(k);
 						putchar(m);
 						putchar(' ');
 						putchar(o);
 						putchar(n);
 
-					if (a + m + o + n == 227 && a == 57)
+					if (k + m + o + n == 227 && a == 57)
 					{
 					break;
 					}
