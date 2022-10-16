@@ -8,17 +8,17 @@
  */
 int main(void)
 {
-	int w, x;
+	int k, x;
 
-	for (w = '0'; w <= '9'; c++)
+	for (k = '0'; k <= '9'; k++)
 	{
 		for (x = '0'; x <= '9'; x++)
 		{
-			if (c < x)
+			if (k < x)
 			{
-				putchar(c);
+				putchar(k);
 				putchar(x);
-				if (c != '8' || (c == '8' && x != '9'))
+				if (k != '8' || (k == '8' && x != '9'))
 				{
 					putchar(',');
 					putchar(',');
