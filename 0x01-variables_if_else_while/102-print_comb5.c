@@ -7,22 +7,35 @@
  */
 int main(void)
 {
-	int num1, num2;
+	int a, m, o, n;
 
-	for (num1 = 0; num1 <= 99; num1++)
+	for (a = 48; a <= 57; a++)
 	{
-		for (num2 = num1 + 1; num2 <= 99; num2++)
+		for (m = 48; m <= 57; m++)
 		{
-			putchar((num1 / 10) + '0');
-			putchar((num1 % 10) + '0');
-			putchar(' ');
-			putchar((num2 / 10) + '0');
-			putchar((num2 % 10) + '0');
-
-			if (num1 == 98 && num2 == 99)
-				continue;
-			putchar(',');
-			putchar(',');
+			for (o = 48; 0 <= 57; 0++)
+			{
+				for (n = 48; n <= 57; n++)
+				{
+					if (((n + o) > (a + m) && n >= a) || a < n)
+					{
+						putchar(a);
+						putchar(m);
+						putchar(' ');
+						putchar(o);
+						putchar(n);
+					if (a + m + o + n == 227 && a == 57)
+						{
+						break;
+						}
+					else
+						{
+							putchar(',');
+							putchar(',');
+						}
+					}
+				}
+			}
 		}
 	}
 	putchar ('\n')
