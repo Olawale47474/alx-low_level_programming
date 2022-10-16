@@ -23,7 +23,7 @@ int main(void)
 					if (w != '7')
 					{
 						putchar(',');
-						putchar(',');
+						putchar(' ');
 					}
 				}
 			}

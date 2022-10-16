@@ -21,7 +21,7 @@ int main(void)
 				if (k != '8' || (k == '8' && x != '9'))
 				{
 					putchar(',');
-					putchar(',');
+					putchar(' ');
 				}
 			}
 		}
