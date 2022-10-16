@@ -13,7 +13,7 @@ int main(void)
 	{
 		for (m = 48; m <= 57; m++)
 		{
-			for (o = 48; 0 <= 57; 0++)
+			for (o = 48; 0 <= 57; o++)
 			{
 				for (n = 48; n <= 57; n++)
 				{
@@ -30,8 +30,8 @@ int main(void)
 						}
 					else
 						{
-							putchar(',');
-							putchar(',');
+						putchar(',');
+						putchar(',');
 						}
 					}
 				}
