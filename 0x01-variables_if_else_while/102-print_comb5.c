@@ -7,39 +7,28 @@
  */
 int main(void)
 {
-	int k, m, o, n;
+	int k, m;
 
-	for (k = 48; k <= 57; k++)
+	for (k = 0; k < 100; k++)
 	{
-		for (m = 48; m <= 57; m++)
+		for (m = 0; m < 100; m++)
 		{
-			for (o = 48; o <= 57; o++)
+			if (k < m)
 			{
-				for (n = 48; n <= 57; n++)
-				{
-					if (((o + n) > (k + m) && o >= k) || k < n)
-					{
-						putchar(k);
-						putchar(m);
-						putchar(' ');
-						putchar(o);
-						putchar(n);
+				putchar((k / 10) + 48);
+				putchar((k % 10) + 48);
+				putchar(' ');
+				putchar((m / 10) + 48);
+				putchar(m % 10) + 48);
 
-					if (k + m + o + n == 227 && k == 57)
-					{
-					break;
-					}
-					else
-					{
+				if (k != 98 || m != 99)
+				{
 					putchar(',');
 					putchar(' ');
-					}
-					}
 				}
 			}
 		}
 	}
-
 	putchar('\n');
 
 	return (0);
