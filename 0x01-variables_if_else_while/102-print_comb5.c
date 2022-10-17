@@ -19,7 +19,7 @@ int main(void)
 				putchar((k % 10) + 48);
 				putchar(' ');
 				putchar((m / 10) + 48);
-				putchar(m % 10) + 48);
+				putchar((m % 10) + 48);
 
 				if (k != 98 || m != 99)
 				{
