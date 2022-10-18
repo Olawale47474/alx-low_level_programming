@@ -12,7 +12,7 @@ int main(void)
 
 	for (z = 0; z < 9; z++)
 	{
-		_putcha(y[z];
+		_putchar(y[z];
 	}
 	_putchar('\n');
 	return (0);
