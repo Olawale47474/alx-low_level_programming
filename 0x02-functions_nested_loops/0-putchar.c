@@ -17,3 +17,5 @@ int main(void)
 		_putchar[x];
 		j++;
 	}
+	return (0);
+}
