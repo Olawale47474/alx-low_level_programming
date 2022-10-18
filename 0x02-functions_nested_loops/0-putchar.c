@@ -8,14 +8,12 @@
 int main(void)
 {
 	int j = 0;
-	char x;
-	char m[] = "school\n";
+	char y = putchar;
+	int a = 9;
 
-	while (j <= 9)
-	{
-		x = m[j];
-		_putchar[x];
-		j++;
-	}
+	if (j <= 9)
+
+	putchar('_');
+	putchar(putchar);
 	return (0);
 }
