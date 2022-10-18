@@ -7,16 +7,13 @@
  */
 int main(void)
 {
-	char y[] = "school";
-	int z;
-
-	for (z = 0; z < 9; z++)
-	{
-		_putchar(y[z];
-	}
+	_putchar('_');
+	_putchar('p');
+	_putchar('u');
+	_putchar('t');
+	_putchar('c');
+	_putchar('h');
+	_putchar('a');
+	_putchar('r');
 	_putchar('\n');
-	return (0);
 }
-
-
-
