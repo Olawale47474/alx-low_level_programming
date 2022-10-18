@@ -7,11 +7,10 @@
  */
 int main(void)
 {
-	char ch = 'a' 'z';
-	{
-	putchar("lowercase %c\n", ch);
-	ch++
-	}
-	putchar('\n');
-	return (0);
+	int k
+		for (k = 'a' k <= 'z'; k++)
+		{
+			_putchar(n);
+		}
+	_putchar('\n');
 }
