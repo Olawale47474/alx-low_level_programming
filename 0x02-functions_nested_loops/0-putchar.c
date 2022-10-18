@@ -7,13 +7,9 @@
  */
 int main(void)
 {
-	int j = 0;
-	char y = putchar;
-	int a = 9;
+	char ch = 'putchar';
 
-	if (j <= 9)
+	putchar(ch);
 
-	putchar('_');
-	putchar(putchar);
 	return (0);
 }
