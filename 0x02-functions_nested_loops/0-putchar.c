@@ -7,12 +7,12 @@
  */
 int main(void)
 {
-	char *y = "school";
+	char *sh = "school";
 
-	while (*y)
+	while (*sh)
 	{
-		_putcha(*y);
-		y++;
+		_putcha(*sh);
+		sh++;
 	}
 	_putchar('\n');
 	return (0);
