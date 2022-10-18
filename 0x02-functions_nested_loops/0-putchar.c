@@ -7,15 +7,13 @@
  */
 int main(void)
 {
-	_putchar('_');
-	_putchar('p');
-	_putchar('u');
-	_putchar('t');
-	_putchar('c');
-	_putchar('h');
-	_putchar('a');
-	_putchar('r');
-	_putchar('\n');
+	int j = 0;
+	char x;
+	char m[] = "school\n";
 
-	return (0);
-}
+	while (j <= 9)
+	{
+		x = m[j];
+		_putchar[x];
+		j++;
+	}
