@@ -7,12 +7,12 @@
  */
 int main(void)
 {
-	char *sh = "school";
+	char y[] = "school";
+	int z;
 
-	while (*sh)
+	for (z = 0; z < 9; z++)
 	{
-		_putcha(*sh);
-		sh++;
+		_putcha(y[z];
 	}
 	_putchar('\n');
 	return (0);
