@@ -1,4 +1,4 @@
-#include <0-putchar.h>
+#include "0-putchar.c"
 
 /**
  * main - Prints _putchar
@@ -7,7 +7,7 @@
  */
 int main(void)
 {
-	char y = "putcha";
+	char y = "putchar";
 
 	while (y)
 	{
