@@ -1,7 +1,7 @@
 #include "main.h"
-
+#include "main_.c"
 /**
- * main - check the code for Holberton School students.
+ * main -prints the n times, table
  *
  * Return: Always 0.
  */
