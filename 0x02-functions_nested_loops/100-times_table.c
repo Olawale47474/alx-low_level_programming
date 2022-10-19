@@ -1,18 +1,29 @@
-#include "main.h"
-#include "main_.c"
+#include <stdio.h>
+
 /**
- * main -prints the n times, table
+ * main - print prime factor of the number "612852475143"
  *
- * Return: Always 0.
+ * Return: void.
  */
+
 int main(void)
 {
-	print_times_table(0);
-	_putchar('\n');
-	print_times_table(15);
-	_putchar('\n');
-	print_times_table(98);
-	_putchar('\n');
-	print_times_table(12);  
-	return (0);
+int i;
+long int bf, n;
+
+i = 2;
+n = 612852475143;
+bf = 0;
+
+for (i = 3; i <= n; i += 2)
+{
+while (n % i == 0)
+{
+n = n / i;
+bf = i;
+}
+
+}
+printf("%ld\n", bf);
+return (0);
 }
