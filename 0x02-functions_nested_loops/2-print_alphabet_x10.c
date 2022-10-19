@@ -7,11 +7,17 @@
  */
 void print_alphabet_x10(void)
 {
-	char letter;
+	int n, co;
 
-	letter = 'a' (letter 'a' <= 'z', letter++)
-		_putchar("letter %c\n", letter);
-		_putchar(n);
+	co = 0;
 
-	return (0);
+	while (co < 10)
+	{
+		for (n = 'a'; n <= 'z'; n++)
+		{
+			_putchar(n);
+		}
+		co++;
+		_putchar('\n');
+	}
 }
