@@ -1,23 +1,31 @@
+#include "main.h"
 #include <stdio.h>
+/**
+ * print_number - that prints an integer
+ * @n: number to string
+ * Returnn: nothing
+ */
 
-int main(void)
+void print_number(int n)
 {
-  int n;
-  int a[5];
-  int *p;
+	int pot_10 = 1, sign = 1, tmp = n;
 
-  a[2] = 1024;
-  p = &n;
-  /*
-   * write your line of code here...
-   * Remember:
-   * - you are not allowed to use a
-   * - you are not allowed to modify p
-   * - only one statement
-   * - you are not allowed to code anything else than this line of code
-   */
-  *(p + 5) = 98;
-  /* ...so that this prints 98\n */
-  printf("a[2] = %d\n", a[2]);
-  return (0);
+	while (tmp / 10)
+	{
+		pot_10 *= 10;
+		tmp /= 10;
+	}
+
+	if (tmp < 0)
+	{
+		sign *= -1;
+		_putchar('-');
+	}
+	while (pot_10 > 0)
+	{
+		tmp = n / pot_10;
+		_putchar((tmp * sign) + '0');
+		n = n - (tmp * pot_10);
+		pot_10 /= 10;
+	}
 }
