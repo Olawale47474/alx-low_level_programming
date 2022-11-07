@@ -1,41 +1,97 @@
-#include "main.h"
+#include <stdio.h>
 #include <stdlib.h>
+#include "main.h"
 /**
- * argstostr - Main Entry
- * @ac: input
- * @av: input
- * Return: 0
+ *word_len - finds the length of a word
+ *@str:string to test
+ *
+ *Return:int
  */
-char *argstostr(int ac, char **av)
+int word_len(char *str)
 {
-	int i, n, k = 0, len = 0;
-	char *str;
+	int i = 0, len = 0;
 
-	if (ac == 0 || av == NULL)
-		return (NULL);
-
-	for (i = 0; i < ac; i++)
+	while (*(str + i) && *(str + i) != ' ')
 	{
-		for (n = 0; av[i][n]; n++)
-			len++;
+		len++;
+		i++;
 	}
-	len += ac;
+	return (len);
+}
+/**
+ *word_count - counts the number of words
+ *
+ *@str:input
+ *
+ *Return:(no. of words)
+ *
+ */
+int word_count(char *str)
+{
+	int i = 0, len = 0, count = 0;
 
-	str = malloc(sizeof(char) * len + 1);
-	if (str == NULL)
-		return (NULL);
-
-	for (i = 0; i < ac; i++)
+	for (i = 0; *(str + i); i++)
 	{
-		for (n = 0; av[i][n]; n++)
+		len++;
+	}
+	for (i = 0; i < len; i++)
+	{
+		if (*(str + i) != ' ')
 		{
-			str[k] = av[i][n];
-			k++;
-		}
-		if (str[k] == '\0')
-		{
-			str[k++] = '\n';
+			count++;
+			i += word_len(str + i);
 		}
 	}
-	return (str);
+	return (count);
+}
+/**
+ *strtow - splits a string into words
+ *
+ *@str:input
+ *
+ *Return:0 - success
+ *
+ */
+char **strtow(char *str)
+{
+	int i, words, w, letters, l;
+	char **p;
+
+	if (str == NULL || str[0] == '\0')
+	{
+		return (NULL);
+	}
+	words = word_count(str);
+	if (words == 0)
+	{
+		return (NULL);
+	}
+	p = malloc(sizeof(char *) * (words + 1));
+	if (p == NULL)
+	{
+		return (NULL);
+	}
+	for (i = 0; i < words; i++)
+	{
+		while (*(str + w) == ' ')
+		{
+			w++;
+		}
+		letters = word_len(str + w);
+		p[i] = malloc(sizeof(char) * (letters + 1));
+		if (p[i] == NULL)
+		{
+			for (; i >= 0; i--)
+				free(p[i]);
+			free(p);
+			return (NULL);
+		}
+		for (l = 0; l < letters; l++)
+		{
+			p[i][l] = str[w++];
+		}
+		p[i][l] = '\0';
+	}
+	p[i] = NULL;
+	return (p);
 }
