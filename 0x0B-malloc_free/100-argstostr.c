@@ -1,97 +1,52 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "main.h"
-/**
- *word_len - finds the length of a word
- *@str:string to test
- *
- *Return:int
- */
-int word_len(char *str)
-{
-	int i = 0, len = 0;
+#include <stdlib.h>
 
-	while (*(str + i) && *(str + i) != ' ')
-	{
-		len++;
-		i++;
-	}
-	return (len);
-}
 /**
- *word_count - counts the number of words
+ * argstostr - concatenates all the arguments of a program.
+ * @ac: argument count.
+ * @av: argument vector.
  *
- *@str:input
- *
- *Return:(no. of words)
- *
+ * Return: pointer of an array of char
  */
-int word_count(char *str)
+char *argstostr(int ac, char **av)
 {
-	int i = 0, len = 0, count = 0;
+	char *aout;
+	int c, i, j, ia;
 
-	for (i = 0; *(str + i); i++)
-	{
-		len++;
-	}
-	for (i = 0; i < len; i++)
-	{
-		if (*(str + i) != ' ')
-		{
-			count++;
-			i += word_len(str + i);
-		}
-	}
-	return (count);
-}
-/**
- *strtow - splits a string into words
- *
- *@str:input
- *
- *Return:0 - success
- *
- */
-char **strtow(char *str)
-{
-	int i, words, w, letters, l;
-	char **p;
+	if (ac == 0)
+		return (NULL);
 
-	if (str == NULL || str[0] == '\0')
+	for (c = i = 0; i < ac; i++)
 	{
-		return (NULL);
-	}
-	words = word_count(str);
-	if (words == 0)
-	{
-		return (NULL);
-	}
-	p = malloc(sizeof(char *) * (words + 1));
-	if (p == NULL)
-	{
-		return (NULL);
-	}
-	for (i = 0; i < words; i++)
-	{
-		while (*(str + w) == ' ')
-		{
-			w++;
-		}
-		letters = word_len(str + w);
-		p[i] = malloc(sizeof(char) * (letters + 1));
-		if (p[i] == NULL)
-		{
-			for (; i >= 0; i--)
-				free(p[i]);
-			free(p);
+		if (av[i] == NULL)
 			return (NULL);
-		}
-		for (l = 0; l < letters; l++)
-		{
-			p[i][l] = str[w++];
-		}
-		p[i][l] = '\0';
+
+		for (j = 0; av[i][j] != '\0'; j++)
+			c++;
+		c++;
 	}
-	p[i] = NULL;
-	return (p);
+
+	aout = malloc((c + 1) * sizeof(char));
+
+	if (aout == NULL)
+	{
+		free(aout);
+		return (NULL);
+	}
+
+	for (i = j = ia = 0; ia < c; j++, ia++)
+	{
+		if (av[i][j] == '\0')
+		{
+			aout[ia] = '\n';
+			i++;
+			ia++;
+			j = 0;
+		}
+		if (ia < c - 1)
+			aout[ia] = av[i][j];
+	}
+	aout[ia] = '\0';
+
+	return (aout);
 }
