@@ -1,52 +1,55 @@
 #include "main.h"
 #include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 
 /**
- * argstostr - concatenates all the arguments of a program.
- * @ac: argument count.
- * @av: argument vector.
+ * argstostr - concatenates all the arguments
+ * @ac: input params
+ * @av: input params
  *
- * Return: pointer of an array of char
+ * Return: nothing.
  */
+
 char *argstostr(int ac, char **av)
 {
-	char *aout;
-	int c, i, j, ia;
+	int x, j, v = 0;
+	int len = 1;
+	char *str;
 
-	if (ac == 0)
-		return (NULL);
-
-	for (c = i = 0; i < ac; i++)
+	if (ac == 0 || av == NULL)
 	{
-		if (av[i] == NULL)
-			return (NULL);
-
-		for (j = 0; av[i][j] != '\0'; j++)
-			c++;
-		c++;
-	}
-
-	aout = malloc((c + 1) * sizeof(char));
-
-	if (aout == NULL)
-	{
-		free(aout);
 		return (NULL);
 	}
 
-	for (i = j = ia = 0; ia < c; j++, ia++)
+	for (x = 0; x < ac; x++)
 	{
-		if (av[i][j] == '\0')
+		for (j = 0; av[x][j] != '\0'; j++)
 		{
-			aout[ia] = '\n';
-			i++;
-			ia++;
-			j = 0;
+			len += 1;
 		}
-		if (ia < c - 1)
-			aout[ia] = av[i][j];
+		len += 1;
 	}
-	aout[ia] = '\0';
+	str = malloc(sizeof(char) * len);
 
-	return (aout);
+	for (x = 0; x < ac; x++)
+	{
+		for (j = 0; av[x][j] != '\0'; j++)
+		{
+			str[v] = av[x][j];
+			v++;
+		}
+		str[v] = '\n';
+		v++;
+	}
+	str[v] = '\0';
+
+	if (str != NULL)
+	{
+		return (str);
+	}
+	else
+	{
+		return (NULL);
+	}
 }
