@@ -1,181 +1,114 @@
-#include <stdio.h>
+#include<string.h>
+#include "main.h"
 #include <stdlib.h>
-#include "holberton.h"
-
-void populateResult(char *dest, char *n1, int n1_len, char *n2, int n2_len);
-int getLengthOfNum(char *str);
-void print_result(char *src, int length);
-
+#include <stdio.h>
 /**
- * main - entry point, multiplies two numbers
+ * _isdigit - checks if character is digit
+ * @c: the character to check
  *
- * @argc: integer, length of @argv
- *
- * @argv: one-dimensional array of strings, arguments of this program
- *
- * Return: 0, success
+ * Return: 1 if digit, 0 otherwise
  */
-
-int main(int argc, char *argv[])
+int _isdigit(int c)
 {
-	int num1_length, num2_length;
-	char *result;
-
-	if (argc != 3)
-	{
-		printf("Error\n");
-		exit(98);
-	}
-
-	num1_length = getLengthOfNum(argv[1]);
-
-	if (!num1_length)
-	{
-		printf("Error\n");
-		exit(98);
-	}
-
-	num2_length = getLengthOfNum(argv[2]);
-
-	if (!num2_length)
-	{
-		printf("Error\n");
-		exit(98);
-	}
-
-	result = malloc(num1_length + num2_length);
-
-	if (!result)
-		return (1);
-
-	populateResult(result, argv[1], num1_length, argv[2], num2_length);
-
-	print_result(result, num1_length + num2_length);
-	printf("\n");
-	free(result);
-
-	return (0);
+	return (c >= '0' && c <= '9');
 }
 
 /**
- * getLengthOfNum - length of numbers in a string
+ * _strlen - returns the length of a string
+ * @s: the string whose length to check
  *
- * @str: pointer to string of numbers
- *
- * Return: integer (SUCCESS) or
- * NULL, if string includes char
+ * Return: integer length of string
  */
-
-int getLengthOfNum(char *str)
+int _strlen(char *s)
 {
 	int i = 0;
 
-	while (str[i])
-	{
-		if (str[i] >= '0' && str[i] <= '9')
-			i++;
-		else
-			return ('\0');
-
-	}
-
+	while (*s++)
+		i++;
 	return (i);
 }
 
 /**
- * populateResult - multiplies two numbers stored as string
- * and stores result in @dest
+ * big_multiply - multiply two big number strings
+ * @s1: the first big number string
+ * @s2: the second big number string
  *
- * @dest: pointer to where @num1 * @num2 should be stored
- *
- * @n1: positive number stored as string in an array
- *
- * @n2: positive number stored as string in an array
- *
- * @n1_len: length of @n1
- *
- * @n2_len: length of @n2
+ * Return: the product big number string
  */
-
-void populateResult(char *dest, char *n1, int n1_len, char *n2, int n2_len)
+char *big_multiply(char *s1, char *s2)
 {
-	int i, j, k, temp_value, non_carry_value;
-	int carry_value = 0;
-	char *multiplicand, *multiplier;
+	char *r;
+	int l1, l2, a, b, c, x;
 
-	if (n1_len > n2_len)
-	{
-		i = n1_len - 1;
-		j = n2_len - 1;
-		multiplicand = n1;
-		multiplier = n2;
-	}
-	else
-	{
-		i = n2_len - 1;
-		j = n1_len - 1;
-		multiplicand = n2;
-		multiplier = n1;
-	}
+	l1 = _strlen(s1);
+	l2 = _strlen(s2);
+	r = malloc(a = x = l1 + l2);
+	if (!r)
+		printf("Error\n"), exit(98);
+	while (a--)
+		r[a] = 0;
 
-	while (i >= 0)
+	for (l1--; l1 >= 0; l1--)
 	{
-		k = i;
-
-		while (k >= 0)
+		if (!_isdigit(s1[l1]))
 		{
-			temp_value = ((multiplicand[k] - '0') * (multiplier[j] - '0'));
-			temp_value += carry_value;
-
-			if (j + 1 <= n2_len - 1 && dest[k + j + 1] >= '0' && dest[k + j + 1] <= '9')
-				temp_value += dest[k + j + 1] - '0';
-
-			if (temp_value < 10)
-			{
-				non_carry_value = temp_value;
-				carry_value = 0;
-			}
-			else
-			{
-				non_carry_value = temp_value % 10;
-				carry_value = temp_value / 10;
-			}
-
-			dest[k + j + 1] = non_carry_value + '0';
-			k--;
+			free(r);
+			printf("Error\n"), exit(98);
 		}
+		a = s1[l1] - '0';
+		c = 0;
 
-		if (carry_value)
-			dest[k + j + 1] = carry_value + '0';
+		for (l2 = _strlen(s2) - 1; l2 >= 0; l2--)
+		{
+			if (!_isdigit(s2[l2]))
+			{
+				free(r);
+				printf("Error\n"), exit(98);
+			}
+			b = s2[l2] - '0';
 
-		carry_value = 0;
+			c += r[l1 + l2 + 1] + (a * b);
+			r[l1 + l2 + 1] = c % 10;
 
-		if (j > 0)
-			j--;
-		else
-			i = -1;
+			c /= 10;
+		}
+		if (c)
+			r[l1 + l2 + 1] += c;
 	}
-
-	free(dest);
-	free(multiplicand);
-	free(multiplier);
+	return (r);
 }
 
+
 /**
- * print_result - prints numbers stored as string in a memory location
+ * main - multiply two big number strings
+ * @argc: the number of arguments
+ * @argv: the argument vector
  *
- * @src: pointer to memory that stores numbers as strings
- *
- * @length: length of @src
+ * Return: Always 0 on success.
  */
-
-void print_result(char *src, int length)
+int main(int argc, char **argv)
 {
-	int i;
+	char *r;
+	int a, c, x;
 
-	for (i = 0; i < length; i++)
+	if (argc != 3)
+		printf("Error\n"), exit(98);
+
+	x = _strlen(argv[1]) + _strlen(argv[2]);
+	r = big_multiply(argv[1], argv[2]);
+	c = 0;
+	a = 0;
+	while (c < x)
 	{
-		if (src[i] >= '0' && src[i] <= '9')
-		printf("%c", src[i]);
+		if (r[c])
+			a = 1;
+		if (a)
+			putchar(r[c] + '0');
+		c++;
 	}
+	if (!a)
+		putchar('0');
+	putchar('\n');
+	free(r);
+	return (0);
 }
